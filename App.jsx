@@ -1,60 +1,39 @@
-.App {
-  text-align: left;
+import React, { useState } from "react";
+import "./App.css";
+
+function App() {
+  const [showLanding, setShowLanding] = useState(true);
+
+  const handleGetStarted = () => {
+    setShowLanding(false);
+  };
+
+  return (
+    <div className="App">
+      {showLanding ? (
+        <div className="landing-page">
+          <div className="landing-content">
+            <h1>Paradise Nursery</h1>
+            <p>Where Green Meets Serenity</p>
+            <p className="landing-description">
+              Every plant we grow is nurtured with love, care, and
+              sustainable practices. Bring home a little piece of paradise
+              and let nature breathe life into your space.
+            </p>
+            <button className="get-started-button" onClick={handleGetStarted}>
+              Get Started
+            </button>
+          </div>
+        </div>
+      ) : (
+        <div className="product-page">
+          {/* Product listing, navbar, and cart components render here
+              once the user clicks "Get Started". */}
+          <h2>Welcome to the Paradise Nursery shop!</h2>
+        </div>
+      )}
+    </div>
+  );
 }
 
-/* ---------- Landing Page Background Image ---------- */
-.landing-page {
-  height: 100vh;
-  width: 100%;
-  background-image: linear-gradient(
-      rgba(15, 40, 15, 0.55),
-      rgba(15, 40, 15, 0.55)
-    ),
-    url("https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=1600&q=80");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.landing-content {
-  color: #ffffff;
-  max-width: 600px;
-  padding: 20px;
-}
-
-.landing-content h1 {
-  font-size: 3rem;
-  margin-bottom: 8px;
-}
-
-.landing-content p {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-
-.landing-description {
-  font-size: 1rem !important;
-  margin-bottom: 30px !important;
-  opacity: 0.9;
-}
-
-.get-started-button {
-  padding: 12px 28px;
-  border: none;
-  border-radius: 6px;
-  font-size: 1rem;
-  cursor: pointer;
-  background: #3f7d33;
-  color: #fff;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.get-started-button:hover {
-  background: #33682a;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-}
+export default App;
